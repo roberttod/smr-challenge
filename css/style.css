@@ -1,0 +1,78 @@
+.begin {
+	
+}
+
+.challenge {
+	margin: 0 auto;
+  width: 800px;
+}
+
+#ace-editor {
+  margin: 50px 0;
+  width: 800px;
+  height: 500px;
+  font-size: 15px;
+}
+
+.timer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 50px;
+  border: 3px grey solid;
+  line-height: 50px;
+  text-align: center;
+  color: red;
+  font-size: 32px;
+  background-color: #fff;
+}
+
+img {
+  display: block;
+  margin: 20px auto;
+}
+
+body {
+  background-color: #4D4F53;
+  color: #E2E2E2;
+}
+
+h1 {
+  font-size: 48px;
+  text-align: center;
+  line-height: 500px;
+}
+
+p { 
+  text-align: center;
+  font-size: 18px;
+}
+
+pre {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+  width: 200px;
+}
+
+.theform {
+  width: 225px;
+  margin: 0 auto;
+}
+
+.start {
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.save-msg {
+  position: fixed;
+  width: 440px;
+  height: 100px;
+  left: 0;
+  top: 50%;
+  font-size: 32px;
+  -webkit-transform: rotate(-45deg);
+}
