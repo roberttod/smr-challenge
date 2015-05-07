@@ -155,6 +155,11 @@
               exec: function(editor) {
                 var code = editor.getValue();
 
+                if (code.indexOf("for (var i=0;") === -1) {
+                  alert("You changed the starter!");
+                  return false;
+                }
+
                 try {
 
                   var value = eval(code);
