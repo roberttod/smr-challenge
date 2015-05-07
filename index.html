@@ -61,8 +61,10 @@
 
             $('.start').click(function() {
 
-              if ($('#name').val().length < 3 || $('#name').val().length < 5) {
-                alert("Please put in a name and email!");
+              var emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+
+              if (!$('#name').val().length || !$('#email').val().length || !emailRegex.test($('#email').val())) {
+                alert("Please put in a name and valid email");
                 return false;
               }
 
@@ -184,31 +186,10 @@
                   alert("Syntax error:" + e);
                 }
               },
-              readOnly: false // false if this command should not apply in readOnly mode
+              readOnly: false
           });
       </script>
       </div>
     </div>
   </body>
 </html>
-
-<!-- 
-
-- Save everything to localstorage so it can work without an internet connection
-
-- Start a timer when test begins
-- Increment an 'attempts' count for every submission
-- Personally wouldn't make it apparent this occurring (less pressure)
-
-- Store an array of objects which contains name, email, time, attempts, could include their code too
-- Bonus, make a utility to filter the submissions by fast speed/low attempts
-
-- Use content editable/textarea for code entry
-- Ensure `for (var i = 0;` is not editable and is the first line on submission
-- Create fake console to print result? Allows user to see what result they're getting
-
-- When successful say thanks or something
-
-- Try and get on brand
-
--->
