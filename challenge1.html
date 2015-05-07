@@ -61,7 +61,7 @@
 
             $('.start').click(function() {
 
-              var emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+              var emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
               if (!$('#name').val().length || !$('#email').val().length || !emailRegex.test($('#email').val())) {
                 alert("Please put in a name and valid email");
@@ -171,7 +171,8 @@
                     googleForm.submit({
                       584038464: $('#name').val(),
                       663424153: $('#email').val(),
-                      1143816994: msTime
+                      1143816994: msTime,
+                      6923730: 1
                     });
 
                     $('.content').html("<h1>Correct! Your details have been recorded.</h1>");

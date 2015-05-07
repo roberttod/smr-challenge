@@ -1,0 +1,204 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Qubit - Quick Challenge</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/ace/ace.js"></script>
+    <script src="js/ace/theme-monokai.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/ace/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="content">
+      <img src='http://qubit.com/sites/all/themes/qubit/img/logo.png' />
+      <p>You are given an array of products in the format:</p>
+      <pre>{ name: "Blue Shirt", price: "£19.04" }</pre>
+      <p>You must calculate the average price of all products in the array</p>
+      <p>and populate the variable `average` with a FLOAT to TWO decimal places
+      <p>To complete the challenge press CMD + S.</p>
+      <p>Ready?</p>
+      <div class='theform'>
+        <label for="name">Name</label>
+        <input type="text" name="name" id='name' />
+        <label for="email">Email</label>
+        <input type="email" name="email" id='email' />
+        <button class="start">Start</button>
+      </div>
+      <div class="challenge" style="display: none;">
+        <div class='save-msg'>Hit CMD + S to run your code</div>
+        <div class='timer'>0 secs</div>
+<div id='ace-editor'>(function () {
+  var products = [
+    {
+      name: "Red Shirt",
+      price: "£14.99"
+    },
+    { name: "Blue Shirt", price: "£19.04" },
+    { name: "Green Shirt", price: "£13.54" },
+    { name: "Yellow Shirt", price: "£17.16" }
+  ];
+
+  var average;
+
+
+  // AIM OF THE GAME
+  // Make use of the space below to calculate the MEAN average price
+  // of all the products in the `products` array above
+  // and return the value as a FLOAT to 2 decimal places.
+    
+  /**
+   * CODE BELOW HERE
+   */
+
+
+  $.each(products, function (index, product) {
+
+  });
+
+  /**
+   * CODE ABOVE HERE
+   */
+  return average;
+})();</div>
+        <script>
+          var startTime = 0;
+          var msTime = 0;
+          $(document).ready(function () {
+
+            var name, email;
+
+            $('.start').click(function() {
+
+              var emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+              if (!$('#name').val().length || !$('#email').val().length || !emailRegex.test($('#email').val())) {
+                alert("Please put in a name and valid email");
+                return false;
+              }
+
+              $("html, body").animate({ scrollTop: $(document).height() }, "fast");
+
+              $('.ace_text-input').focus();
+
+              setInterval(function () {
+                startTime++;
+                $('.timer').text(startTime + " secs");
+              }, 1000);
+
+              setInterval(function () {
+                msTime++;
+              }, 100);
+
+              $('.challenge').show();
+            });
+
+          });
+
+          function arraysEqual(arr1, arr2) {
+              if(arr1.length !== arr2.length)
+                  return false;
+              for(var i = arr1.length; i--;) {
+                  if(arr1[i] !== arr2[i])
+                      return false;
+              }
+
+              return true;
+          }
+
+
+          function GoogleForm(opts) {
+            this._opts = $.extend({}, GoogleForm.DEFAULTS, opts);
+          }
+
+          GoogleForm.DEFAULTS = {
+            id: null,
+            baseUrl: "https://docs.google.com"
+          };
+
+          GoogleForm.prototype.submit = function (data) {
+
+            //Create the iframe
+            var iframeName = "qb" + (new Date()).getTime();
+            this._$iframe = $("<iframe />", {
+              name: iframeName,
+              css: { display: "none" }
+            }).appendTo("body");
+
+            //Build URL
+            var url = this._opts.baseUrl;
+            url += "/forms/d/" + this._opts.id + "/formResponse";
+
+            //Create the form
+            var $form = this._$form = $("<form />", {
+              target: iframeName,
+              method: "POST",
+              action: url,
+              css: { display: "none" }
+            }).appendTo("body");
+
+            //Build form
+            $.each(data, function (key, value) {
+              $("<input />", {
+                type: "hidden",
+                name: "entry." + key,
+                value: value
+              }).appendTo($form);
+            });
+
+            //Submit the form
+            $form.submit();
+
+          };
+
+
+          var googleForm = new GoogleForm({ id: "1WyaWcQuTDGyUUBI50fzSL42JCzOpwiKEHyaLMD6TVQs" });
+
+          var editor = ace.edit("ace-editor");
+          editor.setTheme("ace/theme/twilight");
+          var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+          editor.moveCursorTo(14, 15);
+          editor.getSession().setMode(new JavaScriptMode());
+          var answer = 16.18;
+          editor.commands.addCommand({
+              name: 'myCommand',
+              bindKey: {win: 'Ctrl-M',  mac: 'Command-S'},
+              exec: function(editor) {
+                var code = editor.getValue();
+
+                try {
+
+                  var value = eval(code);
+
+                  if (value == answer) {
+
+                    googleForm.submit({
+                      584038464: $('#name').val(),
+                      663424153: $('#email').val(),
+                      1143816994: msTime,
+                      6923730: 2
+                    });
+
+                    $('.content').html("<h1>Correct! Your details have been recorded.</h1>");
+
+
+                  } else {
+                    console.log(value);
+                    alert("Incorrect output, see console log for more");
+                  }
+
+                } catch (e) {
+                  alert("Syntax error:" + e);
+                }
+              },
+              readOnly: false
+          });
+      </script>
+      </div>
+    </div>
+  </body>
+</html>
