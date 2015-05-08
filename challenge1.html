@@ -14,6 +14,11 @@
     <script src="js/ace/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
   </head>
   <body>
+    <div class='nav'>
+      <a href='./challenge1.html' class='navitem item1'>Challenge 1</a>
+      <a href='./challenge2.html' class='navitem item2'>Challenge 2</a>
+      <a href='./challenge3.html' class='navitem item3'>Challenge 3</a>
+    </div>
     <div class="content">
       <img src='http://qubit.com/sites/all/themes/qubit/img/logo.png' />
       <p>You must write some code which will push the numbers 100 to 1 (inclusive) into an array named 'array'.</p>
@@ -54,19 +59,21 @@
 })();</div>
         <script>
           var startTime = 0;
-          var msTime = 0;
+          var msTime;
           $(document).ready(function () {
 
             var name, email;
 
             $('.start').click(function() {
 
-              var emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+              var emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
               if (!$('#name').val().length || !$('#email').val().length || !emailRegex.test($('#email').val())) {
                 alert("Please put in a name and valid email");
                 return false;
               }
+
+              msTime = (new Date()).getTime();
 
               $("html, body").animate({ scrollTop: $(document).height() }, "fast");
 
@@ -168,13 +175,17 @@
 
                   if (arraysEqual(value,answer)) {
 
+                    var currentTime = (new Date()).getTime();
+                    var timeDiff = currentTime - msTime;
+
                     googleForm.submit({
                       584038464: $('#name').val(),
                       663424153: $('#email').val(),
-                      1143816994: msTime
+                      1143816994: timeDiff,
+                      6923730: 1
                     });
 
-                    $('.content').html("<h1>Correct! Your details have been recorded.</h1>");
+                    $('.content').html("<h1>Correct! Your time was: "+ (timeDiff/1000) +" secs. Your details have been recorded.</h1>");
 
 
                   } else {

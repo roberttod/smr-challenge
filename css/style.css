@@ -53,7 +53,7 @@ pre {
   display: block;
   text-align: center;
   margin: 20px auto;
-  width: 200px;
+  max-width: 400px;
 }
 
 .theform {
@@ -76,3 +76,26 @@ pre {
   font-size: 32px;
   -webkit-transform: rotate(-45deg);
 }
+
+.navitem {
+  display: block;
+  height: 30px;
+  width: 150px;
+  text-align: center;
+  line-height: 30px;
+  background-color: #48B28D;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  border-radius: 5px;
+  position: absolute;
+  top: 10px;
+}
+
+.navitem:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.item1 { left: 10px; }
+.item2 { left: 170px; }
+.item3 { left: 330px; }
