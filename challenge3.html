@@ -21,11 +21,10 @@
     </div>
     <div class="content">
       <img src='http://qubit.com/sites/all/themes/qubit/img/logo.png' />
-      <p>You are given an array of product objects in the format:</p>
-      <pre>{ name: "Blue Shirt", price: "£19.04" }</pre>
-      <p>You must calculate the mean average price of all products in the array</p>
-      <p>and populate the variable `average` with a FLOAT to TWO decimal places
+      <p>You must write some code which will push the numbers 100 to 1 (inclusive) into an array named 'array'.</p>
       <p>To complete the challenge press CMD + S.</p>
+      <p>Your must not change the starter code which looks like:</p>
+      <pre>for (var i = 0;</pre>
       <p>Ready?</p>
       <div class='theform'>
         <label for="name">Name</label>
@@ -38,37 +37,25 @@
         <div class='save-msg'>Hit CMD + S to run your code</div>
         <div class='timer'>0 secs</div>
 <div id='ace-editor'>(function () {
-  var products = [
-    {
-      name: "Red Shirt",
-      price: "£14.99"
-    },
-    { name: "Blue Shirt", price: "£19.04" },
-    { name: "Green Shirt", price: "£13.54" },
-    { name: "Yellow Shirt", price: "£17.16" }
-  ];
-
-  var average;
-
-
-  // AIM OF THE GAME
-  // Make use of the space below to calculate the MEAN average price
-  // of all the products in the `products` array above
-  // and return the value as a FLOAT to 2 decimal places.
+  var array = [];
     
   /**
    * CODE BELOW HERE
    */
 
+  // AIM OF THE GAME
+  // Starting with the beginning of the small for loop below, 
+  // without editing what is already there, 
+  // push numbers from 100 to 1 inclusive
+  // into the array named 'array'
 
-  $.each(products, function (index, product) {
 
-  });
+  for (var i=0;
 
   /**
    * CODE ABOVE HERE
    */
-  return average;
+  return array;
 })();</div>
         <script>
           var startTime = 0;
@@ -96,6 +83,10 @@
                 startTime++;
                 $('.timer').text(startTime + " secs");
               }, 1000);
+
+              setInterval(function () {
+                msTime++;
+              }, 100);
 
               $('.challenge').show();
             });
@@ -166,18 +157,23 @@
           var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
           editor.moveCursorTo(14, 15);
           editor.getSession().setMode(new JavaScriptMode());
-          var answer = 16.18;
+          var answer = [100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
           editor.commands.addCommand({
               name: 'myCommand',
               bindKey: {win: 'Ctrl-M',  mac: 'Command-S'},
               exec: function(editor) {
                 var code = editor.getValue();
 
+                if (code.indexOf("for (var i=0;") === -1) {
+                  alert("You changed the starter!");
+                  return false;
+                }
+
                 try {
 
                   var value = eval(code);
 
-                  if (value == answer) {
+                  if (arraysEqual(value,answer)) {
 
                     var currentTime = (new Date()).getTime();
                     var timeDiff = currentTime - msTime;
@@ -186,7 +182,7 @@
                       584038464: $('#name').val(),
                       663424153: $('#email').val(),
                       1143816994: timeDiff,
-                      6923730: 2
+                      6923730: 3
                     });
 
                     $('.content').html("<h1>Correct! Your time was: "+ (timeDiff/1000) +" secs. Your details have been recorded.</h1>");

@@ -4,7 +4,7 @@
 
 * Clone the repository or download the repository as ZIP.
 * If downloaded as zip, UNZIP.
-* Drag the index.html file in the downloaded folder into a new browser window.
+* Drag the challenge1.html file in the downloaded folder into a new browser window.
 * Make sure device is connected to the internet before running with players (1)
 
 
